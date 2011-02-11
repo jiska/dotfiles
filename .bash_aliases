@@ -11,7 +11,3 @@ alias mv='mv -i'
 alias du='du -hs'
 alias df='df -h'
 
-alias grep='grep -e'
-
-alias spec='spec -fs -c'
-
