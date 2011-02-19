@@ -18,3 +18,10 @@ set ignorecase
 
 highlight tabs ctermbg=green guibg=green
 
+"check php syntax 
+autocmd filetype php :set makeprg=php\ -l\ %
+autocmd filetype php :set errorformat=%m\ in\ %f\ on\ line\ %l
+
+"pathogen
+"http://www.vim.org/scripts/script.php?script_id=2332
+call pathogen#runtime_append_all_bundles()
