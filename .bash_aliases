@@ -11,3 +11,5 @@ alias mv='mv -i'
 alias du='du -hs'
 alias df='df -h'
 
+
+alias spec='spec -c'
