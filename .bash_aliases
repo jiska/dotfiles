@@ -16,7 +16,9 @@ alias mv='mv -i'
 alias du='du -hs'
 alias df='df -h'
 
-alias svndiff='svn diff | less'
+# svn
+alias svndf='svn diff | less'
+alias svnqd='svn status | grep "? " | awk "{print($2)}" | xargs rm'
 
 # spec
 alias spec='spec -cfs'
