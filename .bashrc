@@ -108,3 +108,8 @@ PATH="$PATH:/var/lib/gems/1.8/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+
+# set git-complation.bash
+# see more:
+#   htps://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ $(__git_ps1 "[%s] ")'
