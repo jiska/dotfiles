@@ -1,12 +1,8 @@
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8,utf-16,japan
-
-" 文字コードの自動認識
 if &encoding !=# 'utf-8'
   set encoding=japan
   set fileencoding=japan
 endif
+
 if has('iconv')
   let s:enc_euc = 'euc-jp'
   let s:enc_jis = 'iso-2022-jp'
@@ -59,26 +55,81 @@ if exists('&ambiwidth')
   set ambiwidth=double
 endif
 
+set ambiwidth=double
 set backspace=2
 set tabstop=2
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 
-set list
 set number
 set ruler
 set smartindent
 set showmatch
 set showmode
-
+set shellslash
+set ff=unix
+set nobackup
+set noswapfile
+set hlsearch
 set ignorecase
 
-highlight tabs ctermbg=green guibg=green
+syntax on
+filetype plugin on
+filetyp  indent on
 
-"check php syntax 
-autocmd filetype php :set makeprg=php\ -l\ %
-autocmd filetype php :set errorformat=%m\ in\ %f\ on\ line\ %l
+" シンタックスチェック機能
+nmap ,l :call SyntaxCheck()<CR>
+nmap ,e :call ExecuteCode()<CR>
+nmap ,t :call ExecuteTest()<CR>
 
-"pathogen
-"http://www.vim.org/scripts/script.php?script_id=2332
-call pathogen#runtime_append_all_bundles()
+function SyntaxCheck()
+  execute ":w"
+  if ("php" == &filetype)
+    echo system("php -l ".bufname(""))
+  elseif ("ruby" == &filetype)
+    echo system("ruby -c ".bufname(""))
+  elseif ("yaml" == &filetype)
+    echo system('ruby -ryaml -e "begin;YAML::load(open(\"'.bufname("").'\",\"r\").read); puts \"ok\"; rescue ArgumentError => e; puts e; end"')
+  end
+endfunction
+
+function ExecuteCode()
+  execute ":w"
+  if ("php" == &filetype)
+    execute ":! php %"
+  elseif ("ruby" == &filetype)
+    execute ":! ruby %"
+  end
+endfunction
+
+function ExecuteTest()
+  execute ":w"
+  if ("php" == &filetype)
+    execute ":! phpunit --colors %"
+  end
+endfunction
+
+" space可視化の呪文 (via: http://d.hatena.ne.jp/potappo2/20061107/1162862536)
+syntax match InvisibleJISX0208Space "　" display containedin=ALL
+highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=Blue
+syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
+highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=Red
+syntax match InvisibleTab "\t" display containedin=ALL
+highlight InvisibleTab term=underline ctermbg=Cyan guibg=Cyan
+
+if has("syntax")
+    syntax on
+    function! ActivateInvisibleIndicator()
+        syntax match InvisibleJISX0208Space "　" display containedin=ALL
+        highlight InvisibleJISX0208Space term=underline ctermbg=Blue guibg=Blue
+        syntax match InvisibleTrailedSpace "[ \t]\+$" display containedin=ALL
+        highlight InvisibleTrailedSpace term=underline ctermbg=Red guibg=Red
+        syntax match InvisibleTab "\t" display containedin=ALL
+        highlight InvisibleTab term=underline ctermbg=Cyan guibg=Cyan
+    endf
+
+    augroup invisible
+        autocmd! invisible
+        autocmd BufNew,BufRead * call ActivateInvisibleIndicator()
+    augroup END
+endif
