@@ -1,0 +1,10 @@
+[user]
+	name = jiska
+	email = jiska.ym+github@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+	st = status
+	ckt = checkout
