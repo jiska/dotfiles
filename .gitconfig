@@ -8,3 +8,5 @@
 [alias]
 	st = status
 	ckt = checkout
+	df = diff
+	dfs = diff --staged
