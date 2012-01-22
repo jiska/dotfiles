@@ -10,3 +10,5 @@
 	ckt = checkout
 	df = diff
 	dfs = diff --staged
+[core]
+	whitespace = trailing-space,space-before-tab
