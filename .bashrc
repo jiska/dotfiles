@@ -116,4 +116,4 @@ PATH="$PATH:/var/lib/gems/1.8/bin"
 # set git-complation.bash
 # see more:
 #   htps://raw.github.com/git/git/master/contrib/completion/git-completion.bash
-PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ $(__git_ps1 "[%s] ")'
+PS1='${debian_chroot:+($debian_chroot)}\u:\w\$ $(__git_ps1 "[%s] ")'
