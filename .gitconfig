@@ -5,10 +5,16 @@
 	diff = auto
 	status = auto
 	branch = auto
+	grep = auto
 [alias]
 	st = status
-	ckt = checkout
 	df = diff
 	dfs = diff --staged
+	grc = grep --count
+	ci = commit --verbose
+	co = checkout
 [core]
 	whitespace = trailing-space,space-before-tab
+	excludesfile = /home/jiska/.gitignore
+[push]
+	default = current
