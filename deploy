@@ -2,7 +2,7 @@
 
 ## directory path
 base_dir=$(cd $(dirname $0);pwd)
-backup_dir=$base_dir/backup/`date +%Y%m%d_%k%M%S`
+backup_dir=$base_dir/backup/`date +%Y%m%d_%H%M%S`
 
 ## make backup dir
 mkdir $backup_dir
