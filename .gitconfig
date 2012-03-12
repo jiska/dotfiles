@@ -11,8 +11,10 @@
 	df = diff
 	dfs = diff --staged
 	grc = grep --count
+	grl = grep --files-with-matches
 	ci = commit --verbose
 	co = checkout
+	cm = checkout master
 [core]
 	whitespace = trailing-space,space-before-tab
 	excludesfile = /home/jiska/.gitignore
