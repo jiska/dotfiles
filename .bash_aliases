@@ -3,8 +3,9 @@ alias ..='cd ..'
 alias cdw='cd ~/Workspace'
 
 # ls
-alias ll='ls -lh'
+alias ll='ls -lh --group-directories-first'
 alias la='ls -Ah'
+alias lla='ls -lAh --group-directories-first'
 alias l='ls -CF'
 
 # mv, mv, cp
