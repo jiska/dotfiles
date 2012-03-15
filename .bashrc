@@ -105,13 +105,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
 fi
 
-# set PATH so it includes gems bin
-PATH="$PATH:/var/lib/gems/1.8/bin"
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin 
 
 # set git-complation.bash
 # see more:
