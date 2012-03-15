@@ -17,6 +17,9 @@ alias mv='mv -i'
 alias du='du -hs'
 alias df='df -h'
 
+# free
+alias free='free -m'
+
 # svn
 alias svndf='svn diff | less'
 alias svnqd='svn status | grep "? " | awk "{print($2)}" | xargs rm'

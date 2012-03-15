@@ -7,6 +7,7 @@
 	branch = auto
 	grep = auto
 [alias]
+	l = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an, %ar%Creset'
 	st = status
 	df = diff
 	dfs = diff --staged
