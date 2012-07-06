@@ -16,6 +16,10 @@
 	ci = commit --verbose
 	co = checkout
 	cm = checkout master
+	cp = cherry-pick
+	sd = svn dcommit
+	sf = svn fetch
+	sr = svn rebase
 [core]
 	whitespace = trailing-space,space-before-tab
 	excludesfile = /home/jiska/.gitignore
