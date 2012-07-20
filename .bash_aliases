@@ -7,6 +7,7 @@ alias ll='ls -lh --group-directories-first'
 alias la='ls -Ah'
 alias lla='ls -lAh --group-directories-first'
 alias l='ls -CF'
+alias l1='ls -1'
 
 # mv, mv, cp
 alias rm='rm -i'
