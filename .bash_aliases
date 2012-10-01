@@ -1,6 +1,7 @@
 # cd
 alias u='cd ..'
 alias cdw='cd ~/Workspace'
+alias cdv='cd ~/Vagrant'
 
 # ls
 alias ll='ls -lh --group-directories-first'
