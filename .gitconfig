@@ -2,11 +2,7 @@
 	name = jiska
 	email = jiska.ym+github@gmail.com
 [color]
-	branch = auto
-	diff = auto
-	grep = auto
-	show-branch = auto
-	status = auto
+	ui = auto
 [alias]
 	l = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an, %ar%Creset'
 	st = status
@@ -23,6 +19,15 @@
 	sr = svn rebase
 [core]
 	whitespace = trailing-space,space-before-tab
-	excludesfile = /home/jiska/.gitignore
+	excludesfile = ~/.gitignore
+	pager = less -r
+[pager]
+	status = true
 [push]
-	default = current
+	default = tracking
+[branch]
+	autosetuprebase = always
+[merge]
+	ff = false
+[pull]
+	rebase = true
