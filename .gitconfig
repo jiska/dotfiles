@@ -4,16 +4,17 @@
 [color]
 	ui = auto
 [alias]
-	l = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an, %ar%Creset'
-	st = status
-	df = diff
-	dfs = diff --staged
-	grc = grep --count
-	grl = grep --files-with-matches
+	b = branch
 	ci = commit --verbose
 	co = checkout
 	cm = checkout master
 	cp = cherry-pick
+	d = diff
+	ds = diff --staged
+	grc = grep --count
+	grl = grep --files-with-matches
+	l = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an, %ar%Creset'
+	st = status
 	sd = svn dcommit --rmdir --interactive
 	sf = svn fetch
 	sr = svn rebase
@@ -21,6 +22,8 @@
 	whitespace = trailing-space,space-before-tab
 	excludesfile = ~/.gitignore
 	pager = less -r
+	quotepath = false
+	precomposeunicode = true
 [pager]
 	status = true
 [push]
