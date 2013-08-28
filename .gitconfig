@@ -9,12 +9,12 @@
 	co = checkout
 	cm = checkout master
 	cp = cherry-pick
-	d = diff
-	ds = diff --staged
+	d = diff --patience
+	ds = diff --staged --patience
 	grc = grep --count
 	grl = grep --files-with-matches
 	l = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an, %ar%Creset'
-	st = status
+	st = status --short --branch
 	sd = svn dcommit --rmdir --interactive
 	sf = svn fetch
 	sr = svn rebase
