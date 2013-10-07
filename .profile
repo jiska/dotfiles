@@ -14,6 +14,11 @@ if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
         . "$HOME/.bashrc"
     fi
+
+    # include .bashrc-mac if it exists
+    if [ -f "$HOME/.bashrc-mac" ]; then
+        . "$HOME/.bashrc-mac"
+    fi
 fi
 
 # set PATH so it includes user's private bin if it exists
