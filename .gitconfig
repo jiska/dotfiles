@@ -14,6 +14,7 @@
 	grc = grep --count
 	grl = grep --files-with-matches
 	l = log --graph --pretty='format:%C(yellow)%h%Cblue%d%Creset %s %C(black bold)%an, %ar%Creset'
+	m = merge
 	st = status --short --branch
 	sd = svn dcommit --rmdir --interactive
 	sf = svn fetch
