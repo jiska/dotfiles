@@ -1,8 +1,16 @@
 export FIGNORE=${FIGNORE}:.svn
 export LESS='-R'
-export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
+
+# for git
+export GIT_MERGE_AUTOEDIT=no
 
 # for __git_ps1
 export GIT_PS1_SHOWUPSTREAM=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export GIT_PS1_SHOWDIRTYSTATE=1
+
+# for Homebrew custom
+if [ -n "$(which brew)" ]; then
+  export LESSOPEN="| $(brew --prefix)/bin/src-hilite-lesspipe.sh %s"
+  export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:$PATH:./bin"
+fi

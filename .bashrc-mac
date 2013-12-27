@@ -52,17 +52,29 @@ if [ -f ~/.bash_function ]; then
   . ~/.bash_function
 fi
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
+# setting for Boxen
+[ -f /opt/boxen/env.sh ] && . /opt/boxen/env.sh
+
+# setting for Homebrew
+if [ -n "$(which brew)" ]; then
+  if [ -f ~/.bash_export_for_brew ]; then
+    . ~/.bash_export_for_brew
+  fi
+
+
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+
+    # set git-complation.bash
+    # see more:
+    #   htps://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+    if [ -f $(brew --prefix)/etc/bash_completion.d/git-completion.bash ]; then
+      PS1='\u:\w\$ $(__git_ps1 "[%s] ")'
+    fi
+  fi
+
+  # php-version
+  if [ -f $(brew --prefix php-version)/php-version.sh ]; then
+    . $(brew --prefix php-version)/php-version.sh
+  fi
 fi
-
-# rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# php-version
-source $(brew --prefix php-version)/php-version.sh
-
-# set git-complation.bash
-# see more:
-#   htps://raw.github.com/git/git/master/contrib/completion/git-completion.bash
-PS1='\u:\w\$ $(__git_ps1 "[%s] ")'

@@ -1,0 +1,2 @@
+# for Homebrew custom
+export LESSOPEN="| $(brew --prefix)/bin/src-hilite-lesspipe.sh %s"
